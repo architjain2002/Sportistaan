@@ -61,7 +61,7 @@ class SecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("GeeksForGeeks")),
+      appBar: AppBar(title: Text("Sportistaan")),
       body: Center(
           child: Text(
         "Home page",
