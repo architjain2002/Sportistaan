@@ -14,8 +14,8 @@ app.use(express.static("public"));
 app.use(express.json());
 
 // hostname and port
-const hostname = "127.0.0.1";
-const port = 80;
+const hostname = "0.0.0.0"; // ignore for deployment
+const port = process.env.PORT || 3000;
 
 //database connections
 const mongoose = require("mongoose");
@@ -82,7 +82,7 @@ app.get("/show-event", (req, res) => {
 
 // chat application
 const WebSocket = require("ws");
-const wss = new WebSocket.Server({ port: 80 });
+const wss = new WebSocket.Server({ port: 3000 });
 app.get("/", (req, res) => {
   wss.once("connection", function onConnection(ws) {
     console.log("New ws connection established!");
@@ -113,4 +113,5 @@ app.get("/", (req, res) => {
 // listening to the server
 server.listen(port, hostname, () => {
   console.log(`server running at http://${hostname}:${port}`);
+  // console.log(`server running `);
 });
