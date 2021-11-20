@@ -82,7 +82,7 @@ app.get("/show-event", (req, res) => {
 
 // chat application
 const WebSocket = require("ws");
-const wss = new WebSocket.Server({ port: 3000 });
+const wss = new WebSocket.Server({ server });
 app.get("/", (req, res) => {
   wss.once("connection", function onConnection(ws) {
     console.log("New ws connection established!");
@@ -115,3 +115,4 @@ server.listen(port, hostname, () => {
   console.log(`server running at http://${hostname}:${port}`);
   // console.log(`server running `);
 });
+
