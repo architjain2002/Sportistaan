@@ -1,4 +1,4 @@
-POST http://127.0.0.1:80/create-event HTTP/1.1
+POST https://radiant-hamlet-81324.herokuapp.com/create-event HTTP/1.1
 content-type: application/json
 
 
@@ -6,7 +6,7 @@ content-type: application/json
     "gameName": "football",
     "time": "14pm",
     "venue": "grounds",
-    "student_info": [{"name" :"person1"}, {"name":"person2"}],
+    "student_info": [{"name":"person2"}],
     "finish": false,
     "winner": "person1"
 }
@@ -25,3 +25,24 @@ content-type: application/json
 ###
 
 GET http://127.0.0.1:80/show-event HTTP/1.1
+
+
+###
+GET https://radiant-hamlet-81324.herokuapp.com/my-event?username=person4 HTTP/1.1
+
+
+
+###
+
+POST https://sportistaan.herokuapp.com/create-event HTTP/1.1
+content-type: application/json
+
+
+{
+    "gameName": "football",
+    "time": "14pm",
+    "venue": "grounds",
+    "student_info": [{"name" :"person4"}, {"name":"person3"}],
+    "finish": false,
+    "winner": "person1"
+}
