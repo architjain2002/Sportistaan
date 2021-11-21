@@ -10,17 +10,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Splash Screen',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: 'Montserrat',
       ),
-      home: MainPage(),
-        primarySwatch: Colors.green,
-      ),
+      // home: MainPage(),
       home: MyHomePage(),
-      debugShowCheckedModeBanner: false,
-    );
+      );
+      
+      
+    // );
   }
 }
 
@@ -34,9 +35,9 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 3),
+        const Duration(seconds: 5),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => SecondScreen())));
+            context, MaterialPageRoute(builder: (context) => MainPage())));
   }
 
   @override
@@ -44,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
         color: Colors.white,
         child: Container(
-          margin: EdgeInsets.all(50),
+          margin: const EdgeInsets.all(50),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -59,19 +60,5 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ));
-  }
-}
-
-class SecondScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Sportistaan")),
-      body: Center(
-          child: Text(
-        "Home page",
-        textScaleFactor: 2,
-      )),
-    );
   }
 }
