@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sportistaan/constants.dart';
 
 class Home extends StatelessWidget {
   const Home({ Key? key }) : super(key: key);
@@ -6,20 +7,33 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // drawer: ,
       appBar: AppBar(
-        leading:const CircleAvatar(
-          radius: 40,
-          backgroundColor: Colors.grey,
-        ),
+        backgroundColor: const Color(0xFF24243E),
+        leading: Builder(
+              builder: (context) => IconButton(
+                icon: const CircleAvatar(
+                radius: 30,
+                backgroundColor: Colors.grey,
+                ), 
+                onPressed: () => Scaffold.of(context).openDrawer(),
+              ),
+            ),
+        
         
       ),
-      body: Center(child: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: <Color>[Color(0xff0F0C29),Color(0xff302B63),Color(0xff24243E)]
-          )),)),
+      body: Container(
+        decoration: kBoxDecoration,
+        child: const Center(
+          child: Text(
+            'Sportistaan',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w700,
+            ),
+            ),
+        ),
+            ),
     );
   }
 }
