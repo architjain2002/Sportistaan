@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sportistaan/main_page.dart';
 import 'dart:async';
 
 void main() {
@@ -11,6 +12,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Splash Screen',
       theme: ThemeData(
+        primarySwatch: Colors.blue,
+        fontFamily: 'Montserrat',
+      ),
+      home: MainPage(),
         primarySwatch: Colors.green,
       ),
       home: MyHomePage(),
