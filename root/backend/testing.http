@@ -1,0 +1,27 @@
+POST http://127.0.0.1:80/create-event HTTP/1.1
+content-type: application/json
+
+
+{
+    "gameName": "football",
+    "time": "14pm",
+    "venue": "grounds",
+    "student_info": [{"name" :"person1"}, {"name":"person2"}],
+    "finish": false,
+    "winner": "person1"
+}
+
+###
+
+POST http://127.0.0.1:80/join-event HTTP/1.1
+content-type: application/json
+
+
+{
+    "_id":"619917612985886706b43174",
+    "name": "person3"
+}
+
+###
+
+GET http://127.0.0.1:80/show-event HTTP/1.1
