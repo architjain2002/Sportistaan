@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sportistaan/main_page.dart';
 import 'dart:async';
+
+import 'package:sportistaan/main_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,10 +13,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Splash Screen',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        fontFamily: 'Montserrat',
-      ),
-      home: MainPage(),
         primarySwatch: Colors.green,
       ),
       home: MyHomePage(),
@@ -34,9 +31,9 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 3),
+        Duration(seconds: 5),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => SecondScreen())));
+            context, MaterialPageRoute(builder: (context) => MainPage())));
   }
 
   @override
@@ -59,19 +56,5 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ));
-  }
-}
-
-class SecondScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Sportistaan")),
-      body: Center(
-          child: Text(
-        "Home page",
-        textScaleFactor: 2,
-      )),
-    );
   }
 }
