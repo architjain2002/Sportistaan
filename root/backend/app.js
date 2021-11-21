@@ -24,10 +24,11 @@ const mongoose = require("mongoose");
 const Event = require("./models/events");
 
 // connect to the mongodb database
-const mongo_atlas_path =
-  "mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority";
+const dotenv = require("dotenv").config();
+// const mongo_atlas_path =
+//   "mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority";
 mongoose
-  .connect(mongo_atlas_path, {
+  .connect(process.env.MONGODB_URI, {
     // useNEWUrlParser: true,
     // useCreateIndex: true,
     // useUnifiedTopology: true,
@@ -115,5 +116,3 @@ server.listen(port, hostname, () => {
   console.log(`server running at http://${hostname}:${port}`);
   // console.log(`server running `);
 });
-
-
