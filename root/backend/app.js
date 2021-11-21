@@ -81,6 +81,16 @@ app.get("/show-event", (req, res) => {
     });
 });
 
+app.get("/my-event", (req, res) => {
+  Event.find({ student_info: { name: req.body.username } }) // username is the req given by the client
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 // chat application
 const WebSocket = require("ws");
 const wss = new WebSocket.Server({ server });

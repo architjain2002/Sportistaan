@@ -25,3 +25,28 @@ content-type: application/json
 ###
 
 GET http://127.0.0.1:80/show-event HTTP/1.1
+
+
+###
+GET https://sportistaan.herokuapp.com/my-event?username=person3 HTTP/1.1
+content-type: application/json
+
+..
+# {
+#     "name": "person3"
+# }
+
+###
+
+POST https://sportistaan.herokuapp.com/create-event HTTP/1.1
+content-type: application/json
+
+
+{
+    "gameName": "football",
+    "time": "14pm",
+    "venue": "grounds",
+    "student_info": [{"name" :"person4"}, {"name":"person3"}],
+    "finish": false,
+    "winner": "person1"
+}
