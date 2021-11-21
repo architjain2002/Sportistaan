@@ -30,6 +30,17 @@ const eventSchema = new Schema({
   winner: {
     type: String,
   },
+  // number_players: {
+  //   type: Number,
+  // },
+  // date: {
+  //   type: String,
+  //   required: true,
+  // },
+  // gender: {
+  //   type: String,
+  //   required: true,
+  // },
 });
 
 const Event = mongoose.model("Event", eventSchema);

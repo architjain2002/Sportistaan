@@ -42,7 +42,7 @@ content-type: application/json
     "gameName": "football",
     "time": "14pm",
     "venue": "grounds",
-    "student_info": [{"name" :"person4"}, {"name":"person3"}],
+    "student_info": [{"name" :"person45"}, {"name":"person3"}],
     "finish": false,
     "winner": "person1"
 }
