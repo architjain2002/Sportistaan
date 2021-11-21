@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:sportistaan/widgets/round_icon_button.dart';
 import '../constants.dart';
+import 'package:http/http.dart' as http;
 
 class RequestPage extends StatefulWidget {
   const RequestPage({ Key? key }) : super(key: key);
@@ -10,9 +13,29 @@ class RequestPage extends StatefulWidget {
 }
 
 class _RequestPageState extends State<RequestPage> {
+  
   String eventName='', venue='', date='', time='', gender='Male';
   int numberOfPlayers=2;
   TimeOfDay selectedTime = TimeOfDay.now();
+  postData() async {
+    try {
+      var response =await http.post(
+        Uri.parse("https://radiant-hamlet-81324.herokuapp.com/create-event"),
+        body: jsonEncode(<String, Object>{
+          "gameName":eventName,
+          "time":time,
+          "venue": venue,
+          "student_info": [{"name" :"person4"}, {"name":"person3"}],
+          "finish": false,
+          "winner": ""
+        }),
+        );
+        print(response.statusCode);
+        print(response.body);
+    } on Exception catch (e) {
+      print(e);
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -182,12 +205,7 @@ class _RequestPageState extends State<RequestPage> {
             ),
       ElevatedButton(
         onPressed: () {
-          print(eventName);
-          print(venue);
-          print(date);
-          print(time);
-          print(numberOfPlayers);
-          print(gender);
+          postData();
         },
         child: Text(
           'Create',
