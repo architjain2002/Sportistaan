@@ -28,12 +28,10 @@ GET http://127.0.0.1:80/show-event HTTP/1.1
 
 
 ###
-GET https://sportistaan.herokuapp.com/my-event?username=person3 HTTP/1.1
-# content-type: application/json
+GET https://sportistaan.herokuapp.com/my-event?username=person1 HTTP/1.1
 
-# {
-#     "username": "person3"
-# }   
+
+
 ###
 
 POST https://sportistaan.herokuapp.com/create-event HTTP/1.1
