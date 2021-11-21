@@ -82,10 +82,10 @@ app.get("/show-event", (req, res) => {
 });
 
 app.get("/my-event", (req, res) => {
-  Event.find({}) // username is the req given by the client
+  Event.find({ student_info: { name: req.query.username } }) // username is the req given by the client
     .then((result) => {
-      // console.log(result);
-      // console.log(req.body.username);
+      console.log(result);
+      console.log(req.body.username);
       res.send(result);
     })
     .catch((err) => {
