@@ -28,7 +28,7 @@ GET http://127.0.0.1:80/show-event HTTP/1.1
 
 
 ###
-GET https://radiant-hamlet-81324.herokuapp.com/my-event?username=person2 HTTP/1.1
+GET https://radiant-hamlet-81324.herokuapp.com/my-event?username=person4 HTTP/1.1
 
 
 
