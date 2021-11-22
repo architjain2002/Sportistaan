@@ -28,15 +28,12 @@ const dotenv = require("dotenv").config();
 // const mongo_atlas_path =
 //   "mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority";
 mongoose
-  .connect(
-    "MONGODB_URI = mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority",
-    {
-      // useNEWUrlParser: true,
-      // useCreateIndex: true,
-      // useUnifiedTopology: true,
-      // useFindAndModify: false,
-    }
-  )
+  .connect(process.env.MONGODB_URI, {
+    // useNEWUrlParser: true,
+    // useCreateIndex: true,
+    // useUnifiedTopology: true,
+    // useFindAndModify: false,
+  })
   .then(() => {
     console.log("mongodb connected!");
   })
