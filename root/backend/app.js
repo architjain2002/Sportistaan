@@ -30,7 +30,7 @@ require("dotenv").config();
 mongoose
   .connect(
     process.env.MONGODB_URI ||
-      "mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority&socketTimeoutMS=90000'",
+      "mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       // useCreateIndex: true,
