@@ -30,14 +30,14 @@ const dotenv = require("dotenv").config();
 mongoose
   .connect(
     process.env.MONGODB_URI ||
-      "mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useCreateIndex: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-    }
+      "mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority"
   )
+  // {
+  //   useNewUrlParser: true,
+  //   useCreateIndex: true,
+  //   useUnifiedTopology: true,
+  //   useFindAndModify: false,
+  // }
   .then(() => {
     console.log("mongodb connected!");
   })
