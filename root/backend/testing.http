@@ -14,7 +14,7 @@ content-type: application/json
 ###
 GET https://radiant-hamlet-81324.herokuapp.com/show-event HTTP/1.1
 ###
-POST http://127.0.0.1:80/join-event HTTP/1.1
+POST https://radiant-hamlet-81324.herokuapp.com/join-event HTTP/1.1
 content-type: application/json
 
 
