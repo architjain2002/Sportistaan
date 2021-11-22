@@ -61,10 +61,10 @@ app.post("/create-event", (req, res) => {
   event
     .save()
     .then((result) => {
-      console.log("inserted new event");
+      res.end("inserted a new data");
     })
     .catch((err) => {
-      console.log("error");
+      res.end("error in insertion");
     });
 });
 
@@ -75,7 +75,7 @@ app.post("/join-event", (req, res) => {
     { $push: { student_info: { name: req.body.name } } } //  {_id: "12345", student_id: person's Name}
   )
     .then(() => res.end("updated the event"))
-    .catch(() => res.end("error"));
+    .catch(() => res.end("error in joint event"));
 });
 
 // route to all the information of the scheduled events.
