@@ -58,7 +58,14 @@ app.post("/create-event", (req, res) => {
   //   winner: "person1",
   // });
   const event = new Event(req.body);
-  event.save();
+  event
+    .save()
+    .then((result) => {
+      console.log("inserted new event");
+    })
+    .catch((err) => {
+      console.log("error");
+    });
 });
 
 // route for a client to join a particular tournament
