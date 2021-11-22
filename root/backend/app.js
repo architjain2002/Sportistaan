@@ -25,8 +25,8 @@ const Event = require("./models/events");
 
 // connect to the mongodb database
 require("dotenv").config();
-const mongo_atlas_path =
-  "mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority";
+// const mongo_atlas_path =
+//   "mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority";
 mongoose
   .connect(
     process.env.MONGODB_URI ||
