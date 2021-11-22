@@ -24,20 +24,20 @@ const mongoose = require("mongoose");
 const Event = require("./models/events");
 
 // connect to the mongodb database
-const dotenv = require("dotenv").config();
+require("dotenv").config();
 const mongo_atlas_path =
   "mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority";
 mongoose
   .connect(
     process.env.MONGODB_URI ||
-      "mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority"
+      "mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      // useCreateIndex: true,
+      useUnifiedTopology: true,
+      // useFindAndModify: false,
+    }
   )
-  // {
-  //   useNewUrlParser: true,
-  //   useCreateIndex: true,
-  //   useUnifiedTopology: true,
-  //   useFindAndModify: false,
-  // }
   .then(() => {
     console.log("mongodb connected!");
   })
