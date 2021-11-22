@@ -27,23 +27,36 @@ const Event = require("./models/events");
 const dotenv = require("dotenv").config();
 // const mongo_atlas_path =
 //   "mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority";
-mongoose
-  .connect(
-    process.env.MONGODB_URI ||
-      "mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority"
-  )
-  // {
-  //   useNewUrlParser: true,
-  //   useCreateIndex: true,
-  //   useUnifiedTopology: true,
-  //   useFindAndModify: false,
-  // }
-  .then(() => {
-    console.log("mongodb connected!");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// mongoose
+//   .connect(
+//     process.env.MONGODB_URI ||
+//       "mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority"
+//   )
+//   // {
+//   //   useNewUrlParser: true,
+//   //   useCreateIndex: true,
+//   //   useUnifiedTopology: true,
+//   //   useFindAndModify: false,
+//   // }
+//   .then(() => {
+//     console.log("mongodb connected!");
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect(db, {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+    });
+    console.log("MongoDB is Connected...");
+  } catch (err) {
+    console.error(err.message);
+    process.exit(1);
+  }
+};
 
 // routes and controllers
 
