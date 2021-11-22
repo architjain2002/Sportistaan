@@ -14,7 +14,7 @@ app.use(express.static("public"));
 app.use(express.json());
 
 // hostname and port
-const hostname = "0.0.0.0"; // ignore for deployment
+// const hostname = "0.0.0.0"; // ignore for deployment
 const port = process.env.PORT || 3000;
 
 //database connections
@@ -33,9 +33,9 @@ mongoose
       "mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
-      // useCreateIndex: true,
-      // useUnifiedTopology: true,
-      // useFindAndModify: false,
+      useCreateIndex: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
     }
   )
   .then(() => {
@@ -128,7 +128,7 @@ app.get("/", (req, res) => {
 });
 
 // listening to the server
-server.listen(port, hostname, () => {
-  console.log(`server running at http://${hostname}:${port}`);
+server.listen(port, () => {
+  console.log(`server running`);
   // console.log(`server running `);
 });
