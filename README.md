@@ -24,7 +24,7 @@ Our sport enthusiasts and gamers can set their preferences like number of player
 
 
 
-# How successful can VirtualDoctor can turn out to be?
+# How successful can Sportistaan can turn out to be?
 
 Our application can be huge success in all the **college institutes and schools.**
 
