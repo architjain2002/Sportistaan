@@ -74,8 +74,8 @@ app.post("/join-event", (req, res) => {
     { _id: req.body._id },
     { $push: { student_info: { name: req.body.name } } } //  {_id: "12345", student_id: person's Name}
   )
-    .then((result) => res.status(200))
-    .catch((err) => res.status(400));
+    .then(() => res.end("updated the event"))
+    .catch(() => res.end("error"));
 });
 
 // route to all the information of the scheduled events.
