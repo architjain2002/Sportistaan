@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sportistaan/login_page.dart';
 import 'dart:async';
 
 import 'package:sportistaan/main_page.dart';
@@ -20,9 +21,8 @@ class MyApp extends StatelessWidget {
       ),
       // home: MainPage(),
       home: MyHomePage(),
-      );
-      
-      
+    );
+
     // );
   }
 }
@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Timer(
         const Duration(seconds: 5),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => MainPage())));
+            context, MaterialPageRoute(builder: (context) => LoginPage())));
   }
 
   @override
