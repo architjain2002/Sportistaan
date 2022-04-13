@@ -12,8 +12,9 @@ content-type: application/json
 }
 
 ###
-
-POST http://127.0.0.1:80/join-event HTTP/1.1
+GET https://radiant-hamlet-81324.herokuapp.com/show-event HTTP/1.1
+###
+POST https://radiant-hamlet-81324.herokuapp.com/join-event HTTP/1.1
 content-type: application/json
 
 
@@ -42,7 +43,22 @@ content-type: application/json
     "gameName": "football",
     "time": "14pm",
     "venue": "grounds",
-    "student_info": [{"name" :"person4"}, {"name":"person3"}],
+    "student_info": [{"name" :"person456"}, {"name":"person3"}],
+    "finish": false,
+    "winner": "person1"
+}
+
+###
+
+POST https://0.0.0.0:3000/create-event HTTP/1.1
+content-type: application/json
+
+
+{
+    "gameName": "football",
+    "time": "14pm",
+    "venue": "grounds",
+    "student_info": [{"name" :"person456"}, {"name":"person3"}],
     "finish": false,
     "winner": "person1"
 }

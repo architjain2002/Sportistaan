@@ -14,7 +14,7 @@ app.use(express.static("public"));
 app.use(express.json());
 
 // hostname and port
-const hostname = "0.0.0.0"; // ignore for deployment
+// const hostname = "0.0.0.0"; // ignore for deployment
 const port = process.env.PORT || 3000;
 
 //database connections
@@ -24,16 +24,20 @@ const mongoose = require("mongoose");
 const Event = require("./models/events");
 
 // connect to the mongodb database
-const dotenv = require("dotenv").config();
+require("dotenv").config();
 // const mongo_atlas_path =
 //   "mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority";
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    // useNEWUrlParser: true,
-    // useCreateIndex: true,
-    // useUnifiedTopology: true,
-    // useFindAndModify: false,
-  })
+  .connect(
+    process.env.MONGODB_URI ||
+      "mongodb+srv://Architjain:UEkpXUAtUP6Pt6B@cluster0.2jwdx.mongodb.net/sportistaan-db?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      // useCreateIndex: true,
+      useUnifiedTopology: true,
+      // useFindAndModify: false,
+    }
+  )
   .then(() => {
     console.log("mongodb connected!");
   })
@@ -54,7 +58,14 @@ app.post("/create-event", (req, res) => {
   //   winner: "person1",
   // });
   const event = new Event(req.body);
-  event.save();
+  event
+    .save()
+    .then((result) => {
+      res.end("inserted a new data");
+    })
+    .catch((err) => {
+      res.end("error in insertion");
+    });
 });
 
 // route for a client to join a particular tournament
@@ -63,8 +74,8 @@ app.post("/join-event", (req, res) => {
     { _id: req.body._id },
     { $push: { student_info: { name: req.body.name } } } //  {_id: "12345", student_id: person's Name}
   )
-    .then((result) => console.log(result))
-    .catch((err) => console.log(err));
+    .then(() => res.end("updated the event"))
+    .catch(() => res.end("error in joint event"));
 });
 
 // route to all the information of the scheduled events.
@@ -124,7 +135,7 @@ app.get("/", (req, res) => {
 });
 
 // listening to the server
-server.listen(port, hostname, () => {
-  console.log(`server running at http://${hostname}:${port}`);
+server.listen(port, () => {
+  console.log(`server running`);
   // console.log(`server running `);
 });
