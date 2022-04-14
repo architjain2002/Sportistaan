@@ -15,7 +15,7 @@ class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   static const List<Widget> _pages = <Widget>[
     Home(),
-    //RequestPage(),
+    RequestPage(),
     AvailablePage(),
     MyMatches(),
     ChatroomPage(),
