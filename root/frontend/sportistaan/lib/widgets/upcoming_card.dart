@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import '../models/events.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class UpcomingCard extends StatelessWidget {
+  Events event;
+
+  UpcomingCard(this.event);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,20 +23,38 @@ class UpcomingCard extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              'Event Name',
+              event.gameName,
               textAlign: TextAlign.center,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text('Date'),
-                Text('Time'),
+                Text(event.time),
+                Text(event.venue),
                 Text('Gender'),
               ],
             ),
             TextButton(
-                onPressed: () => {},
+                onPressed: () async {
+                  try {
+                    var response = await http.post(
+                      Uri.parse(
+                          "https://sportistaan.herokuapp.com/join-event"),
+                      headers: <String, String>{
+                        'Content-Type': 'application/json; charset=UTF-8',
+                      },
+                      body: jsonEncode(<String, Object>{
+                        "_id": event.id,
+                        "name": "name",
+                      }),
+                    );
+                    print(response.statusCode);
+                    print(response.body);
+                  } on Exception catch (e) {
+                    print(e);
+                  }
+                },
                 child: Text(
                   'Register',
                   textAlign: TextAlign.center,
