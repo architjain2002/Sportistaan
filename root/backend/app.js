@@ -92,7 +92,7 @@ app.get("/show-event", (req, res) => {
     });
 });
 
-app.get("/my-event", (req, res) => {
+app.get("/registered-event", (req, res) => {
   Event.find({ student_info: { $elemMatch: { name: req.query.username } } }) // username is the req given by the client
     .then((result) => {
       console.log(result);
@@ -102,6 +102,10 @@ app.get("/my-event", (req, res) => {
     .catch((err) => {
       console.log(err);
     });
+});
+
+app.get("/winners", (req, res) => {
+  Event.find();
 });
 
 // chat application
