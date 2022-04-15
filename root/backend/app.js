@@ -93,7 +93,10 @@ app.get("/show-event", (req, res) => {
 });
 
 app.get("/registered-event", (req, res) => {
-  Event.find({ student_info: { $elemMatch: { name: req.query.username } } }) // username is the req given by the client
+  Event.find(
+    { student_info: { $elemMatch: { name: req.query.username } } },
+    { _id: 1 }
+  ) // username is the req given by the client
     .then((result) => {
       console.log(result);
       console.log(req.body.username);
