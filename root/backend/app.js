@@ -77,12 +77,12 @@ app.post("/join-event", (req, res) => {
     .catch((err) => {
       res.send("errorrr");
     });
-  Event.updateMany(
-    { _id: req.body._id },
-    { $push: { student_info: { name: req.body.name } } }
-  )
-    .then(() => res.end("updated the event"))
-    .catch(() => res.end("error in joint event"));
+  // Event.updateMany(
+  //   { _id: req.body._id },
+  //   { $push: { student_info: { name: req.body.name } } }
+  // )
+  //   .then(() => res.end("updated the event"))
+  //   .catch(() => res.end("error in joint event"));
 });
 
 // route to all the information of the scheduled events.
