@@ -72,7 +72,7 @@ app.post("/create-event", (req, res) => {
 app.post("/join-event", (req, res) => {
   if (
     Event.find(
-      { student_info: { $elemMatch: { name: req.query.username } } } != null
+      { student_info: { $elemMatch: { name: req.body.name } } } != null
     )
   ) {
     res.sendStatus(404);
