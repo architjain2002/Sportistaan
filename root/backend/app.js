@@ -87,7 +87,7 @@ app.post("/join-event", (req, res) => {
       }
     })
     .catch((err) => {
-      res.send("errorrr");
+      res.send(err);
     });
   // Event.updateMany(
   //   { _id: req.body._id },
