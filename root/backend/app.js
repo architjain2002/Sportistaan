@@ -72,7 +72,7 @@ app.post("/create-event", (req, res) => {
 app.post("/join-event", (req, res) => {
   Event.find({ student_info: { $elemMatch: { name: req.body.name } } })
     .then((result) => {
-      if (result == null) {
+      if (result.length == 0) {
         Event.updateMany(
           { _id: req.body._id },
           { $push: { student_info: { name: req.body.name } } }
