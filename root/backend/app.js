@@ -70,6 +70,13 @@ app.post("/create-event", (req, res) => {
 
 // route for a client to join a particular tournament
 app.post("/join-event", (req, res) => {
+  if (
+    Event.find(
+      { student_info: { $elemMatch: { name: req.query.username } } } != null
+    )
+  ) {
+    res.sendStatus(404);
+  }
   Event.updateMany(
     { _id: req.body._id },
     { $push: { student_info: { name: req.body.name } } } //  {_id: "12345", student_id: person's Name}
@@ -95,7 +102,7 @@ app.get("/show-event", (req, res) => {
 app.get("/registered-event", (req, res) => {
   Event.find({ student_info: { $elemMatch: { name: req.query.username } } }) // username is the req given by the client
     .then((result) => {
-      console.log(result);
+      // console.log(result);
       console.log(req.body.username);
       res.send(result);
     })
