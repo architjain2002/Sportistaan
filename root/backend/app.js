@@ -71,7 +71,8 @@ app.post("/create-event", (req, res) => {
 // route for a client to join a particular tournament
 app.post("/join-event", (req, res) => {
   Event.find({
-    student_info: { $elemMatch: { name: req.body.name }, _id: req.body._id },
+    _id: req.body._id,
+    student_info: { $elemMatch: { name: req.body.name } },
   })
     .then((result) => {
       if (result.length == 0) {
