@@ -70,19 +70,18 @@ app.post("/create-event", (req, res) => {
 
 // route for a client to join a particular tournament
 app.post("/join-event", (req, res) => {
-  if (
-    Event.find({ student_info: { $elemMatch: { name: req.body.name } } }) !=
-    null
-  ) {
-    res.sendStatus(404);
-  } else {
-    Event.updateMany(
-      { _id: req.body._id },
-      { $push: { student_info: { name: req.body.name } } } //  {_id: "12345", student_id: person's Name}
-    )
-      .then(() => res.end("updated the event"))
-      .catch(() => res.end("error in joint event"));
-  }
+  Event.find({ student_info: { $elemMatch: { name: req.body.name } } }).then(
+    (result) => {
+      console.log(result);
+    }
+  );
+
+  Event.updateMany(
+    { _id: req.body._id },
+    { $push: { student_info: { name: req.body.name } } }
+  )
+    .then(() => res.end("updated the event"))
+    .catch(() => res.end("error in joint event"));
 });
 
 // route to all the information of the scheduled events.
