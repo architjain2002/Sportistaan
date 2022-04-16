@@ -72,7 +72,16 @@ app.post("/create-event", (req, res) => {
 app.post("/join-event", (req, res) => {
   Event.find({ student_info: { $elemMatch: { name: req.body.name } } })
     .then((result) => {
-      res.send(result);
+      if (result == null) {
+        Event.updateMany(
+          { _id: req.body._id },
+          { $push: { student_info: { name: req.body.name } } }
+        )
+          .then(() => res.end("updated the event"))
+          .catch(() => res.end("error in joint event"));
+      } else {
+        res.send("User already registered for the event");
+      }
     })
     .catch((err) => {
       res.send("errorrr");
