@@ -71,9 +71,8 @@ app.post("/create-event", (req, res) => {
 // route for a client to join a particular tournament
 app.post("/join-event", (req, res) => {
   if (
-    Event.find(
-      { student_info: { $elemMatch: { name: req.body.name } } } != null
-    )
+    Event.find({ student_info: { $elemMatch: { name: req.body.name } } }) !=
+    null
   ) {
     res.sendStatus(404);
   } else {
