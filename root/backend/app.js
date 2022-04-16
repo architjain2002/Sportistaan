@@ -73,7 +73,7 @@ app.post("/join-event", (req, res) => {
   Event.find(
     { student_info: { $elemMatch: { name: req.body.name } } },
     (err, result) => {
-      console.log(result);
+      res.send(result);
     }
   );
   Event.updateMany(
