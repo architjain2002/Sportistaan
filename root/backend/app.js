@@ -105,7 +105,7 @@ app.get("/registered-event", (req, res) => {
     .then((result) => {
       // console.log(result);
       console.log(req.body.username);
-      // res.send(result);
+      res.send(result);
     })
     .catch((err) => {
       console.log(err);
