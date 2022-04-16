@@ -70,12 +70,13 @@ app.post("/create-event", (req, res) => {
 
 // route for a client to join a particular tournament
 app.post("/join-event", (req, res) => {
-  Event.find(
-    { student_info: { $elemMatch: { name: req.body.name } } },
-    (err, result) => {
+  Event.find({ student_info: { $elemMatch: { name: req.body.name } } })
+    .then((result) => {
       res.send(result);
-    }
-  );
+    })
+    .catch((err) => {
+      res.send("errorrr");
+    });
   Event.updateMany(
     { _id: req.body._id },
     { $push: { student_info: { name: req.body.name } } }

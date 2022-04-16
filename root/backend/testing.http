@@ -75,7 +75,7 @@ POST https://sportistaan.herokuapp.com/join-event HTTP/1.1
 
 {
     "_id":"62586472980207460f4ebd14",
-    "name": "name"
+    "name": "person2"
 }
 ###
 
